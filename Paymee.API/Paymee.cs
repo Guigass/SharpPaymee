@@ -10,8 +10,13 @@ namespace Paymee.API
     public class Paymee : IDisposable
     {
         private RestService _restClient;
-        public Paymee(string apiKey, string apiToken, string url = "https://apisandbox.paymee.com.br")
+        public Paymee(string apiKey, string apiToken, bool production = true)
         {
+            string url = "https://apisandbox.paymee.com.br";
+
+            if (production)
+               url = "https://api.paymee.com.br/";
+
             _restClient = new RestService(apiKey, apiToken, url);
         }
 
