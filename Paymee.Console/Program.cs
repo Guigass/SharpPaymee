@@ -6,6 +6,7 @@ namespace Paymee.Console
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
