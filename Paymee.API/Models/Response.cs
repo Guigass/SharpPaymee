@@ -22,6 +22,9 @@ namespace Paymee.API.Models
         [JsonProperty("shopper")]
         public Shopper Shopper { get; set; }
 
+        [JsonProperty("gatewayURL")]
+        public Uri GatewayUrl { get; set; }
+
         [JsonProperty("instructions")]
         public Instructions Instructions { get; set; }
     }

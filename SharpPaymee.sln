@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paymee.API", "Paymee.API\Paymee.API.csproj", "{EC3A5149-5D2F-468A-84F6-CA1A383DF6DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paymee.ConsoleTeste", "Paymee.ConsoleTeste\Paymee.ConsoleTeste.csproj", "{BD48B829-4E8A-4D3C-924B-E0A192DE741F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paymee.ConsoleTeste", "Paymee.ConsoleTeste\Paymee.ConsoleTeste.csproj", "{BD48B829-4E8A-4D3C-924B-E0A192DE741F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{72FF97FE-DAB5-4498-BE0C-BB7FAAFD32AD}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

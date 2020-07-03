@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Paymee.API.Helpers;
 
 namespace Paymee.API.Services
 {
@@ -108,6 +109,26 @@ namespace Paymee.API.Services
             try
             {
                 var result = await client.DeleteAsync($"{_apiUrl}/{action}");
+
+                apiResponse.Status = result.StatusCode.ToString();
+                apiResponse.IsSuccess = result.IsSuccessStatusCode;
+
+                var jsonResult = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+                apiResponse.Object = apiResponse.Message = jsonResult;
+            }
+            catch (Exception ex) { apiResponse.Exception = ex; }
+
+            return apiResponse;
+        }
+
+        public async Task<ApiResponse<string>> Delete(string action, object objeto)
+        {
+            var apiResponse = new ApiResponse<string>();
+
+            try
+            {
+                var result = await client.DeleteAsJsonAsync($"{_apiUrl}/{action}", objeto);
 
                 apiResponse.Status = result.StatusCode.ToString();
                 apiResponse.IsSuccess = result.IsSuccessStatusCode;
