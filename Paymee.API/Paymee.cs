@@ -152,6 +152,8 @@ namespace Paymee.API
 
             if (apiFromClient != apiFromRequest)
                 throw new Exception("A Autenticação falhou");
+
+
         }
 
         public void Dispose()
