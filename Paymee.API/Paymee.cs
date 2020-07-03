@@ -1,4 +1,5 @@
-﻿using Paymee.API.Models;
+﻿using Newtonsoft.Json;
+using Paymee.API.Models;
 using Paymee.API.Services;
 using System;
 using System.Collections.Generic;
@@ -120,9 +121,9 @@ namespace Paymee.API
             return response;
         }
 
-        public async Task<ApiResponse<GenericResponse>> RegisterCallBackUrl(string callbackURL)
+        public async Task<ApiResponse<RedeliverResponse>> RequestRedeliverWebHook(Guid transactionUUID)
         {
-            var response = await _restClient.Put<GenericResponse>($"?callbackURL={callbackURL}", null);
+            var response = await _restClient.Get<RedeliverResponse>($"transactions/{transactionUUID}/webhook/redeliver");
 
             return response;
         }
@@ -134,7 +135,7 @@ namespace Paymee.API
             return response;
         }
 
-        public void GetNotification(string authHeader, string bodyContent)
+        public object GetNotification(string authHeader, string bodyContent)
         {
             string encodedAuthHeader = authHeader.Substring("Basic ".Length).Trim();
 
@@ -146,7 +147,7 @@ namespace Paymee.API
             if (apiFromClient != apiFromRequest)
                 throw new Exception("A Autenticação falhou");
 
-
+            return JsonConvert.SerializeObject(bodyContent);
         }
 
         public void Dispose()
