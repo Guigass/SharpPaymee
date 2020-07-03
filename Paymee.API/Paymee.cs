@@ -127,13 +127,6 @@ namespace Paymee.API
             return response;
         }
 
-        public async Task<ApiResponse<RedeliverResponse>> RequestWebhookRedeliver(Guid transactionUUID)
-        {
-            var response = await _restClient.Get<RedeliverResponse>($"transactions/{transactionUUID}/webhook/redeliver");
-
-            return response;
-        }
-
         public async Task<ApiResponse<WebhooksResponse>> GetWebhook(Guid transactionUUID)
         {
             var response = await _restClient.Get<WebhooksResponse>($"transactions/{transactionUUID}/webhook");
