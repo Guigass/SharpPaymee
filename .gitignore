@@ -340,4 +340,4 @@ ASALocalRun/
 healthchecksdb
 
 #Exclui o projeto do console
-Paymee.Console/*
+/Paymee.ConsoleTeste/*
