@@ -135,7 +135,7 @@ namespace Paymee.API
             return response;
         }
 
-        public object GetNotification(string authHeader, string bodyContent)
+        public PaymentNotification GetNotification(string authHeader, string bodyContent)
         {
             string encodedAuthHeader = authHeader.Substring("Basic ".Length).Trim();
 
@@ -147,7 +147,7 @@ namespace Paymee.API
             if (apiFromClient != apiFromRequest)
                 throw new Exception("A Autenticação falhou");
 
-            return JsonConvert.SerializeObject(bodyContent);
+            return JsonConvert.DeserializeObject<PaymentNotification>(bodyContent);
         }
 
         public void Dispose()

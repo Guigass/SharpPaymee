@@ -45,6 +45,8 @@ namespace Paymee.API.Services
 
                 apiResponse.Message = jsonResult;
 
+                await GetRawHttp(apiResponse, result);
+
                 try { apiResponse.Object = JsonConvert.DeserializeObject<T>(jsonResult); }
                 catch (Exception ex) { apiResponse.Exception = ex; }
             }
@@ -52,6 +54,8 @@ namespace Paymee.API.Services
 
             return apiResponse;
         }
+
+        
 
         public async Task<ApiResponse<T>> Put<T>(string action, object objeto) where T : class
         {
@@ -70,6 +74,8 @@ namespace Paymee.API.Services
                 var jsonResult = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
 
                 apiResponse.Message = jsonResult;
+
+                await GetRawHttp(apiResponse, result);
 
                 try { apiResponse.Object = JsonConvert.DeserializeObject<T>(jsonResult); }
                 catch (Exception ex) { apiResponse.Exception = ex; }
@@ -94,6 +100,8 @@ namespace Paymee.API.Services
 
                 apiResponse.Message = jsonResult;
 
+                await GetRawHttp(apiResponse, result);
+
                 try { apiResponse.Object = JsonConvert.DeserializeObject<T>(jsonResult); }
                 catch (Exception ex) { apiResponse.Exception = ex; }
             }
@@ -116,6 +124,8 @@ namespace Paymee.API.Services
                 var jsonResult = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
 
                 apiResponse.Object = apiResponse.Message = jsonResult;
+
+                await GetRawHttp(apiResponse, result);
             }
             catch (Exception ex) { apiResponse.Exception = ex; }
 
@@ -136,6 +146,8 @@ namespace Paymee.API.Services
                 var jsonResult = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
 
                 apiResponse.Object = apiResponse.Message = jsonResult;
+
+                await GetRawHttp(apiResponse, result);
             }
             catch (Exception ex) { apiResponse.Exception = ex; }
 
@@ -150,6 +162,15 @@ namespace Paymee.API.Services
             client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             client.DefaultRequestHeaders.Add("x-api-key", _apiKey);
             client.DefaultRequestHeaders.Add("x-api-token", _apiToken);
+        }
+
+        private static async Task GetRawHttp<T>(ApiResponse<T> apiResponse, HttpResponseMessage result) where T : class
+        {
+            string rawRequest = await result.RequestMessage.Content.ReadAsStringAsync();
+            string rawResponse = await result.Content.ReadAsStringAsync();
+
+            apiResponse.RawRequest = rawRequest;
+            apiResponse.RawResponse = rawResponse;
         }
 
         public void Dispose()
