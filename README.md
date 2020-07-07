@@ -6,6 +6,9 @@ Para começar a usar você primeiro precisa solicitar a key e o token junto a Paym
 
 A Documentação da API está em https://documenter.getpostman.com/view/3199663/RWM6zDGc?version=latest#intro
 
+Para instalar no seu projeto, basta abrir o console do package manager e execute:
+            Install-Package Paymee.API -Version 1.0.6
+
 ############################ WORK IN PROGRESS #####################################
 
 A Maioria dos metodos já estão implementados porem ainda sem testes, para usar é só seguir o exemplo abaixo.
