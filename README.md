@@ -1,17 +1,18 @@
 # SharpPaymee
 
-SharpPaymee È uma implementaÁ„o da API da Paymee Empresas em C# usando .NET Standard.
+SharpPaymee √© uma implementa√ß√£o da API da Paymee Empresas em C# usando .NET Standard.
 
-Para comeÁar a usar vocÍ primeiro precisa solicitar a key e o token junto a Paymee.
+Para come√ßar a usar voc√™ primeiro precisa solicitar a key e o token junto a Paymee.
 
-A DocumentaÁ„o da API est· em https://documenter.getpostman.com/view/3199663/RWM6zDGc?version=latest#intro
+A Documenta√ß√£o da API est√° em https://documenter.getpostman.com/view/3199663/RWM6zDGc?version=latest#intro
 
 Para instalar no seu projeto, basta abrir o console do package manager e execute:
+
             Install-Package Paymee.API -Version 1.0.6
 
 ############################ WORK IN PROGRESS #####################################
 
-A Maioria dos metodos j· est„o implementados porem ainda sem testes, para usar È sÛ seguir o exemplo abaixo.
+A Maioria dos metodos j√° est√£o implementados porem ainda sem testes, para usar √© s√≥ seguir o exemplo abaixo.
 Exemplo:
 
             using (var paymee = new API.Paymee("SUA API KEY", "SUA API TOKEN", true))
