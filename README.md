@@ -53,4 +53,5 @@ Exemplo:
             
             
 Caso queira contribuir para a biblioteca, fique livre para fazer um pull request.
+
 Espero estar ajudando.
