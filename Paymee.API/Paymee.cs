@@ -15,14 +15,14 @@ namespace Paymee.API
 
         private string _apiKey;
         private string _apiToken;
-        public Paymee(string apiKey, string apiToken, bool production = true)
+        public Paymee(string apiKey, string apiToken, bool production = true, bool logger = false)
         {
             string url = "https://apisandbox.paymee.com.br/v1.1";
 
             if (production)
                url = "https://api.paymee.com.br/v1.1";
 
-            _restClient = new RestService(apiKey, apiToken, url);
+            _restClient = new RestService(apiKey, apiToken, url, logger);
 
             _apiKey = apiKey;
             _apiToken = apiToken;

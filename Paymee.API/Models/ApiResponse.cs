@@ -9,8 +9,6 @@ namespace Paymee.API.Models
         public bool IsSuccess { get; set; } = false;
         public string Status { get; set; }
         public string Message { get; set; }
-        public string RawRequest { get; set; }
-        public string RawResponse { get; set; }
         public Exception Exception { get; set; }
         public T Object { get; set; }
     }

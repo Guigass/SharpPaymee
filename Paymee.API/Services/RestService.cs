@@ -15,8 +15,9 @@ namespace Paymee.API.Services
         private string _apiUrl;
         private string _apiKey;
         private string _apiToken;
+        private bool _logger;
 
-        public RestService(string apiKey, string apiToken, string apiUrl)
+        public RestService(string apiKey, string apiToken, string apiUrl, bool logger = false)
         {
             if (String.IsNullOrEmpty(apiKey) || String.IsNullOrEmpty(apiToken) || String.IsNullOrEmpty(apiUrl))
                 throw new Exception("Erro ao criar o RestService, Verifique se as informações estão corretas");
@@ -24,6 +25,7 @@ namespace Paymee.API.Services
             _apiKey = apiKey;
             _apiToken = apiToken;
             _apiUrl = apiUrl;
+            _logger = logger;
 
             CreateClient();
         }
@@ -44,9 +46,6 @@ namespace Paymee.API.Services
                 var jsonResult = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
 
                 apiResponse.Message = jsonResult;
-
-                apiResponse.RawRequest = rawRequest;
-                apiResponse.RawResponse = rawResponse;
 
                 try { apiResponse.Object = JsonConvert.DeserializeObject<T>(jsonResult); }
                 catch (Exception ex) { apiResponse.Exception = ex; }
@@ -74,9 +73,6 @@ namespace Paymee.API.Services
 
                 apiResponse.Message = jsonResult;
 
-                apiResponse.RawRequest = rawRequest;
-                apiResponse.RawResponse = rawResponse;
-
                 try { apiResponse.Object = JsonConvert.DeserializeObject<T>(jsonResult); }
                 catch (Exception ex) { apiResponse.Exception = ex; }
             }
@@ -100,9 +96,6 @@ namespace Paymee.API.Services
 
                 apiResponse.Message = jsonResult;
 
-                apiResponse.RawRequest = rawRequest;
-                apiResponse.RawResponse = rawResponse;
-
                 try { apiResponse.Object = JsonConvert.DeserializeObject<T>(jsonResult); }
                 catch (Exception ex) { apiResponse.Exception = ex; }
             }
@@ -125,9 +118,6 @@ namespace Paymee.API.Services
                 var jsonResult = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
 
                 apiResponse.Object = apiResponse.Message = jsonResult;
-
-                apiResponse.RawRequest = rawRequest;
-                apiResponse.RawResponse = rawResponse;
             }
             catch (Exception ex) { apiResponse.Exception = ex; }
 
@@ -148,20 +138,15 @@ namespace Paymee.API.Services
                 var jsonResult = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
 
                 apiResponse.Object = apiResponse.Message = jsonResult;
-
-                apiResponse.RawRequest = rawRequest;
-                apiResponse.RawResponse = rawResponse;
             }
             catch (Exception ex) { apiResponse.Exception = ex; }
 
             return apiResponse;
         }
 
-        string rawRequest;
-        string rawResponse;
         private void CreateClient()
         {
-            client = new HttpClient(new LoggingHandler(new HttpClientHandler()));
+            client = new HttpClient(new LoggingHandler(new HttpClientHandler(), _logger));
 
             client.MaxResponseContentBufferSize = 256000;
 

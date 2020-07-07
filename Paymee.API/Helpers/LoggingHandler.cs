@@ -10,9 +10,10 @@ namespace Paymee.API.Helpers
 {
     public class LoggingHandler : DelegatingHandler
     {
-        public LoggingHandler(HttpMessageHandler innerHandler) : base(innerHandler)
+        private bool _logger { get; set; }
+        public LoggingHandler(HttpMessageHandler innerHandler, bool log = false) : base(innerHandler)
         {
-
+            _logger = log;
         }
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
@@ -25,9 +26,8 @@ namespace Paymee.API.Helpers
             if (request.Content != null)
                 sbRequest.AppendLine(await request.Content.ReadAsStringAsync());
 
-            sbRequest.AppendLine();
-
-            LogService.DebugWrite(sbRequest.ToString());
+            if (_logger)
+                LogService.DebugWrite(sbRequest.ToString());
 
             var sbResponse = new StringBuilder();
 
@@ -39,9 +39,8 @@ namespace Paymee.API.Helpers
             if (response.Content != null)
                 sbResponse.AppendLine(await response.Content.ReadAsStringAsync());
 
-            sbResponse.AppendLine();
-
-            LogService.DebugWrite(sbResponse.ToString());
+            if (_logger)
+                LogService.DebugWrite(sbResponse.ToString());
 
             return response;
         }
