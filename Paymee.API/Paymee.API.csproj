@@ -4,6 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>1.0.5</Version>
+    <RepositoryUrl>https://github.com/Guigass/SharpPaymee</RepositoryUrl>
+    <PackageTags>Paymee</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
