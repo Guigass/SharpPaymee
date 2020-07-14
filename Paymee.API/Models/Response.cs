@@ -14,7 +14,7 @@ namespace Paymee.API.Models
         public string ReferenceCode { get; set; }
 
         [JsonProperty("amount")]
-        public long Amount { get; set; }
+        public double Amount { get; set; }
 
         [JsonProperty("uuid")]
         public Guid Uuid { get; set; }

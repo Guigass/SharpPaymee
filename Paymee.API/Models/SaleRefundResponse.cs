@@ -20,7 +20,7 @@ namespace Paymee.API.Models
         public string Currency { get; set; }
 
         [JsonProperty("originalAmount")]
-        public long OriginalAmount { get; set; }
+        public double OriginalAmount { get; set; }
 
         [JsonProperty("discounts")]
         public long Discounts { get; set; }

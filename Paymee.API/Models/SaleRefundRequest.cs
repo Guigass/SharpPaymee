@@ -8,7 +8,7 @@ namespace Paymee.API.Models
     public partial class SaleRefundRequest
     {
         [JsonProperty("amount")]
-        public long Amount { get; set; }
+        public double Amount { get; set; }
 
         [JsonProperty("reason")]
         public string Reason { get; set; }

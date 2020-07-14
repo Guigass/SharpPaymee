@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace Paymee.API
 {
-    public class Paymee : IDisposable
+    public class PaymeeClient : IDisposable
     {
         private RestService _restClient;
 
         private string _apiKey;
         private string _apiToken;
-        public Paymee(string apiKey, string apiToken, bool production = true, bool logger = false)
+        public PaymeeClient(string apiKey, string apiToken, bool production = true)
         {
             string url = "https://apisandbox.paymee.com.br/v1.1";
 
             if (production)
                url = "https://api.paymee.com.br/v1.1";
 
-            _restClient = new RestService(apiKey, apiToken, url, logger);
+            _restClient = new RestService(apiKey, apiToken, url);
 
             _apiKey = apiKey;
             _apiToken = apiToken;

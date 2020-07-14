@@ -17,7 +17,7 @@ namespace Paymee.API.Models
         public string Currency { get; set; }
 
         [JsonProperty("amount")]
-        public long Amount { get; set; }
+        public double Amount { get; set; }
 
         [JsonProperty("shopper")]
         public Shopper Shopper { get; set; }

@@ -17,7 +17,7 @@ namespace Paymee.API.Models
         public string Status { get; set; }
 
         [JsonProperty("amount")]
-        public long Amount { get; set; }
+        public double Amount { get; set; }
 
         [JsonProperty("creation")]
         public DateTimeOffset Creation { get; set; }
