@@ -35,6 +35,6 @@ namespace Paymee.API.Models
         public double AppliedRate { get; set; }
 
         [JsonProperty("creation")]
-        public DateTimeOffset Creation { get; set; }
+        public DateTime Creation { get; set; }
     }
 }

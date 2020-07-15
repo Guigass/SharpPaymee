@@ -17,6 +17,6 @@ namespace Paymee.API.Models
         public double Balance { get; set; }
 
         [JsonProperty("date")]
-        public DateTimeOffset Date { get; set; }
+        public DateTime Date { get; set; }
     }
 }

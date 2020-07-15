@@ -20,7 +20,7 @@ namespace Paymee.API.Models
         public Beneficiary Beneficiary { get; set; }
 
         [JsonProperty("scheduledDate", NullValueHandling = NullValueHandling.Ignore)]
-        public DateTimeOffset? ScheduledDate { get; set; }
+        public DateTime? ScheduledDate { get; set; }
 
         [JsonProperty("notes")]
         public string Notes { get; set; }

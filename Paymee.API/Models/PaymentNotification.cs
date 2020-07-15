@@ -23,7 +23,7 @@ namespace Paymee.API.Models
         public Shopper Shopper { get; set; }
 
         [JsonProperty("date")]
-        public DateTimeOffset Date { get; set; }
+        public DateTime Date { get; set; }
 
         [JsonProperty("newStatus")]
         public string NewStatus { get; set; }

@@ -26,6 +26,6 @@ namespace Paymee.API.Models
         public ResponseWebhook Response { get; set; }
 
         [JsonProperty("date")]
-        public DateTimeOffset Date { get; set; }
+        public DateTime Date { get; set; }
     }
 }

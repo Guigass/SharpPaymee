@@ -47,10 +47,10 @@ namespace Paymee.API.Models
         public string ReferenceCode { get; set; }
 
         [JsonProperty("creation")]
-        public DateTimeOffset Creation { get; set; }
+        public DateTime Creation { get; set; }
 
         [JsonProperty("maxAge")]
-        public DateTimeOffset MaxAge { get; set; }
+        public DateTime MaxAge { get; set; }
 
         [JsonProperty("shopper")]
         public Shopper Shopper { get; set; }
