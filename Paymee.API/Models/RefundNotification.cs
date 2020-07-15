@@ -17,16 +17,16 @@ namespace Paymee.API.Models
         public string Currency { get; set; }
 
         [JsonProperty("originalAmount")]
-        public long OriginalAmount { get; set; }
+        public double OriginalAmount { get; set; }
 
-        [JsonProperty("reversedAmount")]
-        public long ReversedAmount { get; set; }
+        [JsonProperty("amountRefunded")]
+        public double AmountRefunded { get; set; }
 
         [JsonProperty("bankDetails")]
         public BankDetails BankDetails { get; set; }
 
         [JsonProperty("receipt")]
-        public string Receipt { get; set; }
+        public Uri Receipt { get; set; }
 
         [JsonProperty("status")]
         public string Status { get; set; }
