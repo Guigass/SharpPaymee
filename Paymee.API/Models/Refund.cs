@@ -23,6 +23,6 @@ namespace Paymee.API.Models
         public DateTime Creation { get; set; }
 
         [JsonProperty("creditDate")]
-        public DateTime CreditDate { get; set; }
+        public DateTime? CreditDate { get; set; }
     }
 }
