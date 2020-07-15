@@ -38,6 +38,6 @@ namespace Paymee.API.Models
         public string Reason { get; set; }
 
         [JsonProperty("date")]
-        public DateTimeOffset Date { get; set; }
+        public DateTime Date { get; set; }
     }
 }
