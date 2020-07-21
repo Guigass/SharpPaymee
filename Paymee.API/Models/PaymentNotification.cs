@@ -11,7 +11,7 @@ namespace Paymee.API.Models
         public Guid SaleToken { get; set; }
 
         [JsonProperty("referenceCode")]
-        public long ReferenceCode { get; set; }
+        public string ReferenceCode { get; set; }
 
         [JsonProperty("currency")]
         public string Currency { get; set; }
