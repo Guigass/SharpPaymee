@@ -10,7 +10,7 @@ namespace Paymee.API.Models
         [JsonProperty("document")]
         public Document Document { get; set; }
 
-        [JsonProperty("bankDetails")]
+        [JsonProperty("bankDetails", NullValueHandling = NullValueHandling.Ignore)]
         public BankDetails BankDetails { get; set; }
     }
 }

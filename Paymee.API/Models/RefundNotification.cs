@@ -22,7 +22,7 @@ namespace Paymee.API.Models
         [JsonProperty("amountRefunded")]
         public double AmountRefunded { get; set; }
 
-        [JsonProperty("bankDetails")]
+        [JsonProperty("bankDetails", NullValueHandling = NullValueHandling.Ignore)]
         public BankDetails BankDetails { get; set; }
 
         [JsonProperty("receipt")]
