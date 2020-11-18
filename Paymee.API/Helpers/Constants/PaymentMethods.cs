@@ -19,5 +19,6 @@ namespace Paymee.API.Helpers.Constants
         public static string Inter { get; set; } = "INTER_TRANSFER";
         public static string BS2 { get; set; } = "BS2_TRANSFER";
         public static string OutrosBancos { get; set; } = "OUTROS_BANCOS";
+        public static string PIX { get; set; } = "PIX";
     }
 }

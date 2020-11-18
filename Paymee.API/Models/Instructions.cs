@@ -36,5 +36,8 @@ namespace Paymee.API.Models
 
         [JsonProperty("redirect_urls")]
         public RedirectUrls RedirectUrls { get; set; }
+
+        [JsonProperty("qrCode")]
+        public QrCode QrCode { get; set; }
     }
 }

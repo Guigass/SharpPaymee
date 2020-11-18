@@ -8,7 +8,7 @@ A Documentação da API está em https://documenter.getpostman.com/view/3199663/
 
 Para instalar no seu projeto, basta abrir o console do package manager e execute:
 
-            Install-Package Paymee.API -Version 1.0.6
+            Install-Package Paymee.API
 
 ############################ WORK IN PROGRESS #####################################
 
