@@ -36,8 +36,32 @@ namespace Paymee.API.Models
 
         [JsonProperty("redirect_urls")]
         public RedirectUrls RedirectUrls { get; set; }
+    }
+
+    public partial class InstructionsPIX
+    {
+        [JsonProperty("chosen")]
+        public string Chosen { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("label")]
+        public string Label { get; set; }
 
         [JsonProperty("qrCode")]
         public QrCode QrCode { get; set; }
+
+        [JsonProperty("keys")]
+        public object Keys { get; set; }
+
+        [JsonProperty("steps")]
+        public Steps Steps { get; set; }
+    }
+
+    public partial class Steps
+    {
+        [JsonProperty("qrCode", NullValueHandling = NullValueHandling.Ignore)]
+        public List<string> QrCode { get; set; }
     }
 }

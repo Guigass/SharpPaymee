@@ -13,7 +13,19 @@ namespace Paymee.API.Models
         [JsonProperty("message")]
         public string Message { get; set; }
 
-        [JsonProperty("response")]
+        [JsonProperty("response", NullValueHandling = NullValueHandling.Ignore)]
         public Response Response { get; set; }
+    }
+
+    public partial class CheckOutPIXResponse
+    {
+        [JsonProperty("status")]
+        public long Status { get; set; }
+
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("response", NullValueHandling = NullValueHandling.Ignore)]
+        public ResponsePIX ResponsePIX { get; set; }
     }
 }

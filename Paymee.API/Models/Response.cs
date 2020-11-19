@@ -28,4 +28,28 @@ namespace Paymee.API.Models
         [JsonProperty("instructions")]
         public Instructions Instructions { get; set; }
     }
+
+    public partial class ResponsePIX
+    {
+        [JsonProperty("id")]
+        public long Id { get; set; }
+
+        [JsonProperty("referenceCode")]
+        public string ReferenceCode { get; set; }
+
+        [JsonProperty("amount")]
+        public double Amount { get; set; }
+
+        [JsonProperty("saleCode")]
+        public string SaleCode { get; set; }
+
+        [JsonProperty("uuid")]
+        public Guid Uuid { get; set; }
+
+        [JsonProperty("shopper")]
+        public Shopper Shopper { get; set; }
+
+        [JsonProperty("instructions")]
+        public InstructionsPIX Instructions { get; set; }
+    }
 }

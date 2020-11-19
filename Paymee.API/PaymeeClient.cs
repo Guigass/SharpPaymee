@@ -30,11 +30,25 @@ namespace Paymee.API
 
         public async Task<ApiResponse<CheckOutResponse>> GenerateCheckout(CheckOutRequest checkOutRequest, bool transparent = false)
         {
+            if (checkOutRequest.PaymentMethod == "PIX")
+                throw new Exception("Utilize o metodo GeneratePIXCheckout para pagamentos PIX");
+
             var action = "checkout";
             if (transparent)
                 action = "checkout/transparent";
 
             var response = await _restClient.Post<CheckOutResponse>(action, checkOutRequest);
+
+            return response;
+        }
+
+        public async Task<ApiResponse<CheckOutPIXResponse>> GeneratePIXCheckout(CheckOutRequest checkOutRequest, bool transparent = false)
+        {
+            var action = "checkout";
+            if (transparent)
+                action = "checkout/transparent";
+
+            var response = await _restClient.Post<CheckOutPIXResponse>(action, checkOutRequest);
 
             return response;
         }
